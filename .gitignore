@@ -14,3 +14,18 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+coverage
+vendor/*
+vendor/bundle
+tmp/*
+public/assets/*
+*.swp
+*.swo
+*.orig
+*.bundle
+Gemfile.lock
+*.DS_Store
+.yardoc
+*.production
+tags
