@@ -43,5 +43,9 @@ group :development, :test do
   gem "pry"
   gem "better_errors"
   gem "simplecov-rcov"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "rspec-rails"
 end
 
