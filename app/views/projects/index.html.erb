@@ -9,6 +9,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
+      <th>spent</th>
       <th><%= model_class.human_attribute_name(:started_on) %></th>
       <th><%= model_class.human_attribute_name(:dead_line) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -21,7 +22,16 @@
         <td><%= link_to project.id, project_path(project) %></td>
         <td><%= project.name %></td>
         <td><%= project.description %></td>
-        <td><%= project.status %></td>
+        <td>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: <%= project.status %>%;"></div>
+          </div>
+        </td>
+         <td>
+           <div class="progress <%= detect_alerts(project) %> progress-striped active">
+            <div class="bar" style="width: <%= calculate_spent_time(project) %>%;"></div>
+          </div>
+        </td>
         <td><%= project.started_on %></td>
         <td><%= project.dead_line %></td>
         <td><%=l project.created_at %></td>

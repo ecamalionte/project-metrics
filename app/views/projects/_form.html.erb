@@ -14,9 +14,19 @@
   <div class="control-group">
     <%= f.label :status, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
+      <div class="input-append">
+        <%= f.text_field :status, :class => 'span2', :id => "appendedInput" %>
+        <span class="add-on">%</span>
+      </div>
+    </div>
+    <div class="controls span2">
+      <div class="progress progress-striped active">
+        <div class="bar" style="width: 70%;"></div>
+      </div>
     </div>
   </div>
+
+
   <div class="control-group">
     <%= f.label :started_on, :class => 'control-label' %>
     <div class="controls">
