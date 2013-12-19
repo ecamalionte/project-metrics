@@ -14,10 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+config/database.yml
 coverage
 vendor/*
 vendor/bundle
+bin/*
 tmp/*
 public/assets/*
 *.swp
