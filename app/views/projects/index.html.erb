@@ -29,7 +29,7 @@
         </td>
          <td>
            <div class="progress <%= detect_alerts(project) %> progress-striped active">
-            <div class="bar" style="width: <%= calculate_spent_time(project) %>%;"></div>
+            <div class="bar" style="width: <%= project.consumed_time_rate %>%;"></div>
           </div>
         </td>
         <td><%= project.started_on %></td>
