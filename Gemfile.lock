@@ -241,10 +241,12 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
+  minitest
   pg
   pry
   pry-rails
   rails!
+  rb-fsevent
   roo
   rspec-rails
   sass-rails (~> 4.0.0)
