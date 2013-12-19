@@ -42,6 +42,8 @@ group :development, :test do
   gem "pry-rails"
   gem "pry"
   gem "better_errors"
+  gem "binding_of_caller"
+
   gem "simplecov-rcov"
   gem "factory_girl_rails"
   gem "capybara"
