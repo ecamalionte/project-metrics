@@ -30,7 +30,6 @@ group :development, :test do
 
   gem "simplecov-rcov"
   gem "factory_girl_rails"
-  gem "capybara"
   gem "guard-rspec"
   gem "rb-fsevent"
   gem "rspec-rails"

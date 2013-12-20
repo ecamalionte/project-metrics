@@ -1,7 +1,7 @@
 Community::Application.routes.draw do
-  resources :problems
+  resources :projectts
 
-  resources :projects
+  resources :problems
 
   root "dashboard#index"
 end
