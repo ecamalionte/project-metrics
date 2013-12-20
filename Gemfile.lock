@@ -225,7 +225,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
-  pg
+  pg (>= 0.17.1)
   pry
   pry-rails
   rails (= 4.0.2)

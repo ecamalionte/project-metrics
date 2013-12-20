@@ -1,7 +1,8 @@
+ruby "2.0.0"
 source "https://rubygems.org"
 
 gem "rails",     "4.0.2"
-gem "pg"
+gem "pg",        ">= 0.17.1"
 gem "sprockets-rails", github: "rails/sprockets-rails"
 gem "jquery-rails"
 gem "turbolinks"
