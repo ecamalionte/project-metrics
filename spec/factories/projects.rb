@@ -4,8 +4,8 @@ FactoryGirl.define do
   factory :project do
     title "MyString"
     description "MyString"
-    started_on 30.days.ago
-    dead_line  30.days.from_now
-    status 10
+    started_at 30.days.ago
+    dead_line_at  30.days.from_now
+    progress_rate 10
   end
 end
