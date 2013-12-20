@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20131220004738) do
     t.datetime "updated_at"
   end
 
-  create_table "projectts", force: true do |t|
+  create_table "projects", force: true do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "progress_rate"
