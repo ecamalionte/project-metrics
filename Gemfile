@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails",     github: "rails/rails"
-gem "arel",      github: "rails/arel"
+gem "rails",     "4.0.2"
 gem "pg"
 gem "sprockets-rails", github: "rails/sprockets-rails"
 gem "jquery-rails"
@@ -33,6 +32,5 @@ group :development, :test do
   gem "guard-rspec"
   gem "rb-fsevent"
   gem "rspec-rails"
-  gem "minitest"
 end
 
