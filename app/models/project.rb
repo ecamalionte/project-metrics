@@ -1,10 +1,24 @@
 class Project < ActiveRecord::Base
   RISK_LIMIT_RATE = 50
 
-  validates :title, presence: true
-  validates :progress_rate, numericality: { only_integer: true, less_than_or_equal_to: 100 }
+  validates :title, :started_at, :dead_line_at, presence: true
+  validates :progress_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
+  validate :dead_line_cannot_be_in_the_past, :dead_line_cannot_be_less_than_start
 
+  #validations
+  def dead_line_cannot_be_in_the_past
+    if dead_line_at.present? && dead_line_at < Date.today
+      errors.add(:dead_line_at, "can't be in the past")
+    end
+  end
 
+  def dead_line_cannot_be_less_than_start
+    if dead_line_at.present? && started_at.present?
+      errors.add(:dead_line_at, "can't be less than started_at ") if dead_line_at < started_at
+    end
+  end
+
+  #business
   def consumed_in_days
     return nil unless  started_at
     (Date.today -  started_at).to_i
