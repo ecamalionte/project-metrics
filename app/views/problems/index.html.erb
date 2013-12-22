@@ -18,7 +18,7 @@
         <td><%= link_to problem.id, problem_path(problem) %></td>
         <td><%= problem.title %></td>
         <td><%= problem.desc %></td>
-        <td><%=l problem.created_at %></td>
+        <td><%= format_date_to_str problem.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_problem_path(problem), :class => 'btn btn-mini' %>

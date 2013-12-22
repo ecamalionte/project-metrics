@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:progress_rate) %></th>
-      <th>Consumed</th>
+      <th><%= t('content.project.cosumed_rate') %></th>
       <th><%= model_class.human_attribute_name(:started_at) %></th>
       <th><%= model_class.human_attribute_name(:dead_line_at) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -22,20 +22,19 @@
         <td><%= link_to project.id, project_path(project) %></td>
         <td><%= project.title %></td>
         <td><%= project.description %></td>
-        <td><%= project.progress_rate %></td>
         <td>
           <div class="progress progress-striped active">
-            <div class="bar" style="width: <%= project.progress_rate %>%;"></div>
+            <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>
           </div>
         </td>
          <td>
            <div class="progress <%= detect_alerts(project) %> progress-striped active">
-            <div class="bar" style="width: <%= project.consumed_time_rate %>%;"></div>
+            <div class="bar" style="width: <%= project.consumed_time_rate %>%;"><%=project.consumed_time_rate %>%</div>
           </div>
         </td>
-        <td><%= project.started_at %></td>
-        <td><%= project.dead_line_at %></td>
-        <td><%=l project.created_at %></td>
+        <td><%= format_date_to_str project.started_at %></td>
+        <td><%= format_date_to_str project.dead_line_at %></td>
+        <td><%= format_date_to_str project.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_project_path(project), :class => 'btn btn-mini' %>

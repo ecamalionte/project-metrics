@@ -9,21 +9,31 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @project.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:progress_rate) %>:</strong></dt>
-  <dd><%= @project.progress_rate %></dd>
+  <dd>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: <%= @project.progress_rate %>%;"><%=@project.progress_rate %>%</div>
+    </div>
+  </dd>
+  <dt><strong><%= t('content.project.cosumed_rate') %></strong></dt>
+  <dd>
+    <div class="progress <%= detect_alerts(@project) %> progress-striped active">
+      <div class="bar" style="width: <%= @project.consumed_time_rate %>%;"><%=@project.consumed_time_rate %>%</div>
+    </div>
+  </dd>
   <dt><strong><%= model_class.human_attribute_name(:started_at) %>:</strong></dt>
-  <dd><%= @project.started_at %></dd>
+  <dd><%= format_date_to_str @project.started_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dead_line_at) %>:</strong></dt>
-  <dd><%= @project.dead_line_at %></dd>
+  <dd><%= format_date_to_str @project.dead_line_at %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              projects_path, :class => 'btn'  %>
+    projects_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_project_path(@project), :class => 'btn' %>
+    edit_project_path(@project), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              project_path(@project),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+    project_path(@project),
+    :method => 'delete',
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+    :class => 'btn btn-danger' %>
 </div>
