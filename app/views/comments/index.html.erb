@@ -35,6 +35,10 @@
   </tbody>
 </table>
 
+<%= link_to t('.back', :default => t("helpers.links.back")),
+            build_path_for_commentable,
+            :class => 'btn' %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             build_path_new_comment,
             :class => 'btn btn-primary' %>

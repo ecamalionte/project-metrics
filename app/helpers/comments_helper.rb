@@ -12,6 +12,11 @@ module CommentsHelper
     send("#{commentable_name}_comments_path", "#{commentable_name}_id" => commentable.id)
   end
 
+  def build_path_for_commentable
+    commentable_name = @commentable.class.name.underscore
+    send("#{commentable_name}_path", @commentable)
+  end
+
   def build_path_comments
     commentable_name = @commentable.class.name.underscore
     send("#{commentable_name}_comments_path")
