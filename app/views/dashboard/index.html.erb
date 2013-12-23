@@ -1,1 +1,24 @@
-dashboard
+<div class="page-header">
+  <h1>Top 5</h1>
+</div>
+
+<div class="bs-docs-example well">
+  <%- if @projects.present? %>
+    <%= render "projects/list" %>
+  <%- else -%>
+    <div class="alert alert-success">
+    <%= t("well_done").html_safe %>
+    </div>
+  <%- end -%>
+  <%= render "projects/list" %>
+</div>
+
+<div class="bs-docs-example">
+  <%- if @problems.present? %>
+    <%= render "problems/list" %>
+  <%- else -%>
+    <div class="alert alert-success">
+    <%= t("well_done").html_safe %>
+    </div>
+  <%- end -%>
+</div>

@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
-    def index
-    end
+  def index
+    @problems = Problem.limit(5)
+    @projects = Project.limit(5)
+  end
 end
