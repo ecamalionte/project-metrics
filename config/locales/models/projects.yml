@@ -1,0 +1,14 @@
+#encoding: UTF-8 
+pt-BR:
+  activerecord:
+    models:
+      project: 
+        one: "Projeto"
+        other: "Projetos"
+    attributes:
+      project:
+        title: "Nome"
+        description: "Descrição"
+        progress_rate: "Barra de progresso"
+        started_at: "Data de início"
+        dead_line_at: "Data final"

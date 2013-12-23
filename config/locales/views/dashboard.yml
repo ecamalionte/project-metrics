@@ -1,0 +1,4 @@
+pt-BR:
+  message:
+    well_done: "<b>Parabéns!!!</b>"
+    no_subject: "Não tem %{subject} cadastrado."
