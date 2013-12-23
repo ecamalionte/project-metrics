@@ -27,8 +27,8 @@
             <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>
           </div>
         </td>
-         <td>
-           <div class="progress <%= detect_alerts(project) %> progress-striped active">
+        <td>
+          <div class="progress <%= detect_alerts(project) %> progress-striped active">
             <div class="bar" style="width: <%= project.consumed_time_rate %>%;"><%=project.consumed_time_rate %>%</div>
           </div>
         </td>
@@ -36,8 +36,13 @@
         <td><%= format_date_to_str project.dead_line_at %></td>
         <td><%= format_date_to_str project.created_at %></td>
         <td>
+
+          <%= link_to t('.comment', :default => t("helpers.links.comment")),
+                      build_path_comments_for(project), :class => 'btn btn-mini' %>
+
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_project_path(project), :class => 'btn btn-mini' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       project_path(project),
                       :method => :delete,

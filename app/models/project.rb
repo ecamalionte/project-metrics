@@ -1,11 +1,14 @@
 class Project < ActiveRecord::Base
   RISK_LIMIT_RATE = 50
 
+  has_many :comments, as: :commentable
+
+  #validates
   validates :title, :started_at, :dead_line_at, presence: true
   validates :progress_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
   validate :dead_line_cannot_be_in_the_past, :dead_line_cannot_be_less_than_start
 
-  #validations
+  #custom validations
   def dead_line_cannot_be_in_the_past
     if dead_line_at.present? && dead_line_at < Date.today
       errors.add(:dead_line_at, "can't be in the past")
