@@ -1,1 +1,29 @@
-dashboard
+<div class="page-header">
+  <h1>Top 5</h1>
+</div>
+
+<div class="bs-docs-example project-label">
+  <div class="small-margin">
+    <%- if @projects.present? %>
+      <%= render "projects/list" %>
+    <%- else -%>
+      <div class="alert alert-success">
+        <%= t("message.well_done").html_safe %>
+        <%= t("message.no_subject", subject: "projetos").html_safe %>
+      </div>
+    <%- end -%>
+  </div>
+</div>
+
+<div class="bs-docs-example problem-label">
+  <div class="small-margin"> 
+    <%- if @problems.present? %>
+      <%= render "problems/list" %>
+    <%- else -%>
+      <div class="alert alert-success">
+        <%= t("message.well_done").html_safe %>
+        <%= t("message.no_subject", subject: "problemas").html_safe %>
+      </div>
+    <%- end -%>
+  </div>
+</div>

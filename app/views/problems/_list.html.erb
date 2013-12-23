@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= "title" %></th>
+      <th><%= "desc" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= problem.title %></td>
+        <td><%= problem.desc %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

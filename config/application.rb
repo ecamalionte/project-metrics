@@ -20,6 +20,10 @@ module Community
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     # also need to add pry to Gemfile
+    config.i18n.load_path += Dir["#{Rails.root.to_s}/config/locales/**/*.{rb,yml}"]
+    config.i18n.default_locale = 'pt-BR'
+    config.encoding = "utf-8"
+
     console do
       require "pry"
       config.console = Pry
