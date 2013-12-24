@@ -1,4 +1,4 @@
-#encoding: UTF-8 
+#encoding: UTF-8
 pt-BR:
   date:
     abbr_day_names:
@@ -203,9 +203,9 @@ pt-BR:
   time:
     am: ''
     formats:
-      default: ! '%a, %d de %B de %Y, %H:%M:%S %z'
+      default: ! '%a, %d de %B de %Y, %H:%M:%S'
       long: ! '%d de %B de %Y, %H:%M'
-      short: ! '%d de %B, %H:%M'
+      short: ! '%d/%m/%Y %H:%M'
     pm: ''
   mask:
     date: "11/11/1111"

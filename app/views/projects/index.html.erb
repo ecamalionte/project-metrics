@@ -32,9 +32,9 @@
             <div class="bar" style="width: <%= project.consumed_time_rate %>%;"><%=project.consumed_time_rate %>%</div>
           </div>
         </td>
-        <td><%= format_date_to_str project.started_at %></td>
-        <td><%= format_date_to_str project.dead_line_at %></td>
-        <td><%= format_date_to_str project.created_at %></td>
+        <td><%= l project.started_at %></td>
+        <td><%= l project.dead_line_at %></td>
+        <td><%= l project.created_at, format: :short %></td>
         <td>
 
           <%= link_to t('.comment', :default => t("helpers.links.comment")),

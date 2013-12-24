@@ -20,7 +20,7 @@
         <td><%= comment.content %></td>
         <td><%= comment.commentable_id %></td>
         <td><%= comment.commentable_type %></td>
-        <td><%=l comment.created_at %></td>
+        <td><%=l comment.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       build_path_edit_comment(comment), :class => 'btn btn-mini' %>

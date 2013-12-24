@@ -21,9 +21,9 @@
     </div>
   </dd>
   <dt><strong><%= model_class.human_attribute_name(:started_at) %>:</strong></dt>
-  <dd><%= format_date_to_str @project.started_at %></dd>
+  <dd><%= l @project.started_at %></dd>
   <dt><strong><%= model_class.human_attribute_name(:dead_line_at) %>:</strong></dt>
-  <dd><%= format_date_to_str @project.dead_line_at %></dd>
+  <dd><%= l @project.dead_line_at %></dd>
 </dl>
 
 <div class="form-actions">
