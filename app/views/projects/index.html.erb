@@ -7,12 +7,10 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:progress_rate) %></th>
-      <th><%= t('content.project.cosumed_rate') %></th>
+      <th><%= model_class.human_attribute_name(:consumed_rate)  %></th>
       <th><%= model_class.human_attribute_name(:started_at) %></th>
       <th><%= model_class.human_attribute_name(:dead_line_at) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,7 +19,6 @@
       <tr>
         <td><%= link_to project.id, project_path(project) %></td>
         <td><%= project.title %></td>
-        <td><%= project.description %></td>
         <td>
           <div class="progress progress-striped active">
             <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>
@@ -34,7 +31,6 @@
         </td>
         <td><%= l project.started_at %></td>
         <td><%= l project.dead_line_at %></td>
-        <td><%= l project.created_at, format: :short %></td>
         <td>
 
           <%= link_to t('.comment', :default => t("helpers.links.comment")),

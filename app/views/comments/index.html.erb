@@ -5,10 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:content) %></th>
-      <th><%= model_class.human_attribute_name(:commentable_id) %></th>
-      <th><%= model_class.human_attribute_name(:commentable_type) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,10 +13,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= link_to comment.id, build_path_comment(comment) %></td>
         <td><%= comment.content %></td>
-        <td><%= comment.commentable_id %></td>
-        <td><%= comment.commentable_type %></td>
         <td><%=l comment.created_at, format: :short %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
