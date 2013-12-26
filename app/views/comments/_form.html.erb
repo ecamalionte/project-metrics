@@ -1,4 +1,4 @@
-<%= simple_form_for @comment, url: build_action_for_comment(@comment), :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @comment, url: build_action_for_comment(@comment), :html => { :class => 'well' } do |f| %>
   <%= f.input :content %>
   <%= f.input :commentable_id, as: :hidden %>
   <%= f.input :commentable_type, as: :hidden %>
