@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   include CommentsHelper
 
   before_action :load_commentable
+  before_action :authorize, except: [:index, :show]
 
   # GET /comments
   # GET /comments.json

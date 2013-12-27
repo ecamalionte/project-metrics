@@ -2,6 +2,7 @@ class VotesController < ApplicationController
   include VotesHelper
 
   before_action :load_votable
+  before_action :authorize, except: [:index, :show]
 
   # GET /votes
   # GET /votes.json

@@ -16,6 +16,7 @@ gem "uglifier", ">= 1.0.3"
 gem "simple_form"
 gem "roo"
 gem "i18n-js"
+gem 'bcrypt-ruby', '~> 3.1.0'
 
 
 group :doc do
