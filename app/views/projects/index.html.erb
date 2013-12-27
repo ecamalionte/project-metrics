@@ -36,6 +36,9 @@
           <%= link_to t('.comment', :default => t("helpers.links.comment")),
                       build_path_comments_for(project), :class => 'btn btn-mini' %>
 
+          <%= link_to t('.vote', :default => t("helpers.links.vote")),
+                      build_path_votes_for(project), :class => 'btn btn-mini' %>
+
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_project_path(project), :class => 'btn btn-mini' %>
 

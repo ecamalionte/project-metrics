@@ -17,6 +17,9 @@
   <%= link_to t('.comment', :default => t("helpers.links.comment")),
               build_path_comments_for(@problem), :class => 'btn' %>
 
+  <%= link_to t('.vote', :default => t("helpers.links.vote")),
+              build_path_votes_for(@problem), :class => 'btn' %>
+
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_problem_path(@problem), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

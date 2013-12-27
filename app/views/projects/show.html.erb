@@ -30,6 +30,9 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
     projects_path, :class => 'btn'  %>
 
+  <%= link_to t('.vote', :default => t("helpers.links.vote")),
+    build_path_votes_for(@project), :class => 'btn' %>
+
   <%= link_to t('.comment', :default => t("helpers.links.comment")),
     build_path_comments_for(@project), :class => 'btn' %>
 

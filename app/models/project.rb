@@ -2,6 +2,8 @@ class Project < ActiveRecord::Base
   RISK_LIMIT_RATE = 50
 
   has_many :comments, as: :commentable
+  has_many :votes, as: :votable
+
 
   #validates
   validates :title, :started_at, :dead_line_at, presence: true
