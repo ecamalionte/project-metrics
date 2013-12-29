@@ -3,4 +3,7 @@ class DashboardController < ApplicationController
     @problems = Problem.limit(5)
     @projects = Project.limit(5)
   end
+
+  def welcome
+  end
 end
