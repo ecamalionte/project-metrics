@@ -38,6 +38,6 @@
     <% end %>
   </tbody>
 </table>
-<% if can? :create, @problem %>
+<% if can? :create, Problem %>
   <%= link_to t('.new', :default => t("helpers.links.new")), new_problem_path,:class => 'btn btn-primary' %>
 <% end %>
