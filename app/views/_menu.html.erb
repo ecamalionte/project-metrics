@@ -7,13 +7,15 @@
         <span class="icon-bar"></span>
       </a>
       <a class="brand" href="#"><b>Community</b></a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="menu-span"><%= link_to t("menu.dashboard"), root_path %></li>
-          <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
-          <li class="menu-span"><%= link_to t("menu.project"), projects_path %></li>
-        </ul>
-      </div>
+      <% if current_user %>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_path %></li>
+            <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
+            <li class="menu-span"><%= link_to t("menu.project"), projects_path %></li>
+          </ul>
+        </div>
+      <% end %>
     </div>
   </div>
   <div>
