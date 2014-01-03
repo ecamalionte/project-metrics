@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   load_and_authorize_resource
+  permit_params :title, :desc
 
   before_action :authorize, except: [:index, :show]
 
