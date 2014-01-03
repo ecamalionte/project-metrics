@@ -17,6 +17,6 @@ Community::Application.routes.draw do
     resources :votes
   end
 
-  get 'dashboard' => 'dashboard#index', as: 'dashboard_index'
+  get 'dashboard', to: 'dashboard#index', as: 'dashboard_index'
   root "dashboard#welcome"
 end
