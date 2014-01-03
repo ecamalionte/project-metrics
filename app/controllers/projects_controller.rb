@@ -2,6 +2,9 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authorize, except: [:index, :show]
 
+  load_and_authorize_resource
+  permit_params :title, :description, :progress_rate, :started_at, :dead_line_at
+
   def index
     @projects = Project.all
   end

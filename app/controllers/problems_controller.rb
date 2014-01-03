@@ -1,9 +1,9 @@
 class ProblemsController < ApplicationController
-  load_and_authorize_resource
-  before_action :create_new_user, only: [:create] load_and_authorize_resource
-  permit_params :title, :desc
-
+  before_action :set_problem, only: [:show, :edit, :update, :destroy] 
   before_action :authorize, except: [:index, :show]
+  
+  load_and_authorize_resource
+  permit_params :title, :desc
 
   def index
     @problems = Problem.all
@@ -51,6 +51,10 @@ class ProblemsController < ApplicationController
   end
 
   private
+    def set_problem
+      @problem = Problem.find(params[:id])
+    end
+
     def problem_params
       params.require(:problem).permit(:title, :desc)
     end
