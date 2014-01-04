@@ -4,3 +4,5 @@ pt-BR:
     dashboard: "Resumo"
     projects: "Projetos"
     problems: "Problemas"
+    logout: "Sair"
+    hello: "Olá, "
