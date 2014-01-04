@@ -1,10 +1,75 @@
+
+
+
+<div class='row'>
+  <div class='span1'></div>
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas urgentes</p>
+    <p>
+      <a class="btn btn-large btn-inverse" href="#">
+        Urgente
+      </a>
+    </p>
+  </div>
+
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas importantes</p>
+    <p>
+      <a class="btn btn-large btn-danger" href="#">
+        Importante
+      </a>
+    </p>
+  </div>
+  <div class='span3'></div>
+</div>
+
+<div class='row'>
+  <div class='span1'></div>
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas necessárias</p>
+    <p>
+      <a class="btn btn-large btn-warning" href="#">
+        Necessário
+      </a>
+    </p>
+  </div>
+
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas desejáveis</p>
+    <p>
+      <a class="btn btn-large btn-success" href="#">
+        Desejado
+      </a>
+    </p>
+  </div>
+  <div class='span3'></div>
+</div>
+
+
+<div class='row'>
+ <div class='span1'></div>
+ <div class="well span8">
+   <p>Aqui vai o texto para as coisas que não devemos fazer</p>
+    <p>
+      <a class="btn btn-large" href="#">
+        Não fazer
+      </a>
+    </p>
+  </div>
+ <div class='span3'></div>
+</div>
+
+
+
 <%= simple_form_for @vote, url: build_action_for_vote(@vote), :html => { :class => 'well' } do |f| %>
-  <%= f.input :value %>
+
+
+  <%= f.input :value, as: :hidden %>
   <%= f.input :votable_id, as: :hidden %>
   <%= f.input :votable_type, as: :hidden %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                build_path_votes, :class => 'btn' %>
+      build_path_votes, :class => 'btn' %>
   </div>
 <% end %>
