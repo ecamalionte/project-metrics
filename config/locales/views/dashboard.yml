@@ -2,3 +2,5 @@ pt-BR:
   message:
     well_done: "<b>Parabéns!!!</b>"
     no_subject: "Não tem %{subject} cadastrado."
+    list_projects: "Lista completa dos projetos"
+    list_problems: "Lista completa dos problemas"

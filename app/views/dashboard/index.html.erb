@@ -1,6 +1,4 @@
-<div class="page-header">
-  <h1>Top 5</h1>
-</div>
+<h3>Principais Prioridades</h3>
 
 <div class="bs-docs-example project-label">
   <div class="small-margin">
@@ -13,6 +11,7 @@
       </div>
     <%- end -%>
   </div>
+  <a class="btn btn-mini btn-info" href="<%= projects_path %>"><%= t("message.list_projects") %></a>
 </div>
 
 <div class="bs-docs-example problem-label">
@@ -26,4 +25,5 @@
       </div>
     <%- end -%>
   </div>
+  <a class="btn btn-mini btn-info" href="<%= problems_path %>"><%= t("message.list_problems") %></a>
 </div>

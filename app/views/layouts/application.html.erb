@@ -12,11 +12,13 @@
   </head>
   <body class="container">
     <header>
-      <%= render "/menu" %>
+       <%= render "/menu" %>
     </header>
 
     <section>
-      <%= yield %>
+       <%= render "/notice" %>
+
+       <%= yield %>
     </section>
   </body>
 </html>
