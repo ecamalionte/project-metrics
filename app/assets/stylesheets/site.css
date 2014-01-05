@@ -83,23 +83,4 @@ float: right !important;
 overflow: hidden !important;
 }
 
-.back-gray{
-  background-color: #D3D3D3
-}
-
-.back-danger{
-  background-color: #FFDEDD
-}
-
-.back-warning{
-  background-color: #FFECD3
-}
-
-.back-success{
-  background-color: #CEFFCE
-}
-
-.back-info{
-  background-color: #D3F5FF
-}
 
