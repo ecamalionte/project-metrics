@@ -6,5 +6,8 @@
 <%= render partial: 'modal_vote_form'%>
 
 <script>
-  $('#voteModal').modal('show');
+  $('#voteModal').modal({
+    show:     true,
+    keyboard: false
+  });
 </script>
