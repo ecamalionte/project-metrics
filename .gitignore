@@ -18,7 +18,6 @@ config/database.yml
 coverage
 vendor/*
 vendor/bundle
-bin/*
 tmp/*
 public/assets/*
 *.swp
