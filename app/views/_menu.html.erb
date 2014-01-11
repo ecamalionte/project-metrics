@@ -16,13 +16,9 @@
           <ul class="nav">
             <li class="menu-span"><%= link_to "Home", root_path %></li>
             <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_index_path %></li>
-            <li class="dropdown menu-span">
-              <a class="dropdown-toggle"  data-toggle="dropdown" href="#">Vote aqui</a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                 <li><%= link_to t("menu.problems"), problems_path %></li>
-                 <li><%= link_to t("menu.project"), projects_path %></li>
-              </ul>
-              </li>
+            <li class="menu-span"><%= link_to t("menu.vote"), problems_path %></li>
+            <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
+            <li class="menu-span"><%= link_to t("menu.project"), projects_path %></li>
               <% if can? :create, Group %>
                 <li class="menu-span"><%= link_to t("menu.groups"), groups_path %></li>
               <% end %>

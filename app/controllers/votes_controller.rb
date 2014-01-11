@@ -26,9 +26,12 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to build_path_vote(@vote), notice: 'Vote was successfully created.' }
+        format.html { redirect_to build_path_vote(@vote), notice: t("messages.success") }
       else
-        format.html { render action: 'new' }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'new' 
+        }
       end
     end
   end
@@ -38,9 +41,12 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.update(vote_params)
-        format.html { redirect_to build_path_vote(@vote), notice: 'Vote was successfully updated.' }
+        format.html { redirect_to build_path_vote(@vote), notice: t("messages.success") }
       else
-        format.html { render action: 'edit' }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'edit' 
+        }
       end
     end
   end

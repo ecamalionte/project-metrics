@@ -2,6 +2,7 @@
 pt-BR:   
   menu:
     dashboard: "Resumo"
+    vote: "Vote aqui"
     projects: "Projetos"
     problems: "Problemas"
     groups: "Grupos"

@@ -20,11 +20,12 @@ class GroupsController < ApplicationController
   def create
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @group }
+        format.html { redirect_to @group, notice: t("messages.success") }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'new' 
+        }
       end
     end
   end
@@ -32,11 +33,13 @@ class GroupsController < ApplicationController
   def update
     respond_to do |format|
       if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+        format.html { redirect_to @group, notice: t("messages.success") }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'edit' 
+        }
       end
     end
   end

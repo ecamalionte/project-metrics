@@ -26,9 +26,12 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to build_path_comment(@comment), notice: 'Comment was successfully created.' }
+        format.html { redirect_to build_path_comment(@comment), notice: t("messages.success") }
       else
-        format.html { render action: 'new' }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'new' 
+        }
       end
     end
   end
@@ -40,7 +43,10 @@ class CommentsController < ApplicationController
       if @comment.update(comment_params)
         format.html { redirect_to build_path_comment(@comment), notice: 'Comment was successfully updated.' }
       else
-        format.html { render action: 'edit' }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'edit' 
+        }
       end
     end
   end
