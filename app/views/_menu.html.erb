@@ -22,9 +22,11 @@
                  <li><%= link_to t("menu.problems"), problems_path %></li>
                  <li><%= link_to t("menu.project"), projects_path %></li>
               </ul>
-            </li>
-
-          </ul>
+              </li>
+              <% if can? :create, Group %>
+                <li class="menu-span"><%= link_to t("menu.groups"), groups_path %></li>
+              <% end %>
+            </ul>
         </div>
       <% end %>
     </div>
