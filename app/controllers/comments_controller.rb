@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to build_path_comment(@comment), notice: 'Comment was successfully updated.' }
+        format.html { redirect_to build_path_comment(@comment), notice: t("messages.success") }
       else
         format.html {
           flash[:error] =  t("messages.error")
