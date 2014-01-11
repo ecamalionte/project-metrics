@@ -5,7 +5,5 @@ class CreateGroups < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :groups, :name
   end
 end
