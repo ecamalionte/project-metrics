@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
     
   belongs_to :group
+  has_many :comments
 
   validates :email, uniqueness: true
   validates :email, :password, :role, presence: true
