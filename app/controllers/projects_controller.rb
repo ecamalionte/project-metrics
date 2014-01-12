@@ -24,11 +24,12 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @project }
+        format.html { redirect_to @project, notice: t("messages.success") }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'new' 
+        }
       end
     end
   end
@@ -36,11 +37,12 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @project, notice: t("messages.success") }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'edit' 
+        }
       end
     end
   end

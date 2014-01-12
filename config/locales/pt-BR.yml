@@ -1,5 +1,9 @@
 #encoding: UTF-8
 pt-BR:
+  messages:
+    success: "Operação executada com sucesso."
+    error: "Desculpe, aconteceu algum problema! Tente novamente."
+    logout: "Obrigado!! Você não esta mais logado"
   date:
     abbr_day_names:
     - Dom

@@ -6,6 +6,14 @@ class Ability
       can :manage, :all
     else
       can :read, :all
+      can :create, Comment
+      can [:update, :destroy], Comment do |comment|
+        comment.try(:user) == user 
+      end
+      can :create, Vote
+      can [:update, :destroy], Vote do |vote|
+        vote.try(:group) == user.group 
+      end
     end
   end
 end

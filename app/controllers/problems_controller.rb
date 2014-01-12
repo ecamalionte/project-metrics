@@ -21,11 +21,12 @@ class ProblemsController < ApplicationController
   def create
     respond_to do |format|
       if @problem.save
-        format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @problem }
+        format.html { redirect_to @problem, notice: t("messages.success") }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @problem.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'new' 
+        }
       end
     end
   end
@@ -33,11 +34,12 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @problem, notice: t("messages.success") }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @problem.errors, status: :unprocessable_entity }
+        format.html {
+          flash[:error] =  t("messages.error")
+          render 'edit' 
+        }
       end
     end
   end
