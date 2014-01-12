@@ -5,7 +5,7 @@
   <div class="well span4 back-gray">
     <p>Aqui vai o texto para as coisas urgentes</p>
     <p>
-      <a class="btn btn-large btn-inverse" href="" onClick="community.votes.submit(4);">
+      <a class="btn btn-large btn-inverse" href="" onClick="community.votes.submit(<%= Priority.urgent %>);">
         Urgente
       </a>
     </p>
@@ -14,7 +14,7 @@
   <div class="well span4 back-danger">
     <p>Aqui vai o texto para as coisas importantes</p>
     <p>
-      <a class="btn btn-large btn-danger" href="" onClick="community.votes.submit(3);">
+      <a class="btn btn-large btn-danger" href="" onClick="community.votes.submit(<%= Priority.important %>);">
         Importante
       </a>
     </p>
@@ -25,7 +25,7 @@
   <div class="well span4 back-warning">
     <p>Aqui vai o texto para as coisas necessárias</p>
     <p>
-      <a class="btn btn-large btn-warning" href="" onClick="community.votes.submit(2);">
+      <a class="btn btn-large btn-warning" href="" onClick="community.votes.submit(<%= Priority.relevant %>);">
         Necessário
       </a>
     </p>
@@ -34,7 +34,7 @@
   <div class="well span4 back-success">
     <p>Aqui vai o texto para as coisas desejáveis</p>
     <p>
-      <a class="btn btn-large btn-success" href="" onClick="community.votes.submit(1);">
+      <a class="btn btn-large btn-success" href="" onClick="community.votes.submit(<%= Priority.wanted %>);">
         Desejado
       </a>
     </p>
@@ -46,7 +46,7 @@
  <div class="well span4">
    <p>Aqui vai o texto para as coisas que não devemos fazer</p>
     <p>
-      <a class="btn btn-large btn-primary" href="" onClick="community.votes.submit(0);">
+      <a class="btn btn-large btn-primary" href="" onClick="community.votes.submit(<%= Priority.unwanted %>);">
         Não fazer
       </a>
     </p>
