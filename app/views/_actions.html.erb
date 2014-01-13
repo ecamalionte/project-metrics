@@ -1,8 +1,7 @@
 <%= link_to t('.comment', :default => t("helpers.links.comment")),
             build_path_comments_for(object), :class => 'btn btn-mini' %>
 
-<%= link_to t('.vote', :default => t("helpers.links.vote")),
-            build_path_votes_for(object), :class => 'btn btn-mini' %>
+<%= link_to t('.vote', :default => t("helpers.links.vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(object)}')", :class => 'btn btn-mini' %>
 
 <% if can? :update, object %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
