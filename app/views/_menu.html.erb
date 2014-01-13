@@ -16,7 +16,6 @@
           <ul class="nav">
             <li class="menu-span"><%= link_to "Home", root_path %></li>
             <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_index_path %></li>
-            <li class="menu-span"><%= link_to t("menu.vote"), problems_path %></li>
             <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
             <li class="menu-span"><%= link_to t("menu.project"), projects_path %></li>
               <% if can? :create, Group %>
