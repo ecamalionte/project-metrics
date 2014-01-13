@@ -1,6 +1,3 @@
-
-
-
 <div class='row'>
   <div class="well span4 back-gray">
     <p>Aqui vai o texto para as coisas urgentes</p>
@@ -55,8 +52,8 @@
   <div class="well span4">
     <p>Não decidi ainda! Não quero votar agora.</p>
     <p>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-        build_path_votes, :class => 'btn btn-large' %>
+      <button type="button" class="btn btn-large" data-dismiss="modal">
+        <%= t '.cancel'%></button>
     </p>
   </div>
 </div>
