@@ -13,7 +13,11 @@ class VotesController < ApplicationController
   end
 
   def new
-    @vote = @votable.votes.new
+    user = current_user
+    @vote = @votable.votes.find_by group_id: user.group_id
+    if @vote.blank?
+      @vote = @votable.votes.new
+    end
   end
 
   def edit
@@ -26,12 +30,9 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to build_path_vote(@vote), notice: t("messages.success") }
+        format.html { redirect_to build_root_path_for_votable, notice: t("messages.success") }
       else
-        format.html {
-          flash[:error] =  t("messages.error")
-          render 'new' 
-        }
+        format.html { redirect_to build_root_path_for_votable, error: t("messages.error") }
       end
     end
   end
@@ -41,12 +42,9 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.update(vote_params)
-        format.html { redirect_to build_path_vote(@vote), notice: t("messages.success") }
+        format.html { redirect_to build_root_path_for_votable, notice: t("messages.success") }
       else
-        format.html {
-          flash[:error] =  t("messages.error")
-          render 'edit' 
-        }
+        format.html { redirect_to build_root_path_for_votable, error: t("messages.error") }
       end
     end
   end
