@@ -8,6 +8,10 @@ class VotesController < ApplicationController
     @votes = @votable.votes
   end
 
+  def statistics
+    @statistics = Vote.statistics(@votable)
+  end
+
   def show
     @vote = @votable.votes.find(params[:id])
   end

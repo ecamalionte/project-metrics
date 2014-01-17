@@ -19,6 +19,7 @@ gem "i18n-js"
 gem 'bcrypt-ruby', '~> 3.1.0'
 gem "cancan"
 gem 'cancan_strong_parameters'
+gem "highcharts-rails"
 
 group :doc do
   gem "sdoc", require: false
