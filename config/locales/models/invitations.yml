@@ -1,0 +1,10 @@
+#encoding: UTF-8 
+pt-BR:
+  activerecord:
+    models:
+      invitation: 
+        one: "Convite"
+        other: "Convites"
+    attributes:
+      invitation:
+        recipient_email: "E-mail"
