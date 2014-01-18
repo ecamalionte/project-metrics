@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: :create
+
   def new
     @user = User.new(invitation_token: params[:invitation_token])
-    @user.email = @user.invitation.recipient_email if @user.invitation
+    if @user.invitation
+      @user.email = @user.invitation.recipient_email
+      @user.role  = @user.invitation.role
+      @user.group = @user.invitation.group
+    end
   end
 
   def create
-    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signing up!"
@@ -15,9 +20,12 @@ class UsersController < ApplicationController
   end
 
   private
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role_id, :invitation_id,
-                                 :group_id)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role_id, :group_id)
+  end
+
+  def set_user
+    @user = User.new(user_params)
+    @user.invitation = Invitation.find_by token: params[:user][:invitation_token]
   end
 end

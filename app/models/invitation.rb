@@ -1,5 +1,7 @@
 class Invitation < ActiveRecord::Base
   belongs_to :sender, class_name: 'User'
+  belongs_to :role
+  belongs_to :group
   has_one :recipient, class_name: 'User'
 
   validates :recipient_email, :group_id, :role_id, presence: true
