@@ -7,6 +7,10 @@ class Priority
     unwanted:  0,
   }
 
+  def self.get_weight(priority)
+    MAP[priority]
+  end
+
   def self.urgent
     MAP[:urgent]
   end
