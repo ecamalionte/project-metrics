@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
     @invitation.sender = current_user
     if @invitation.save
       Mailer.invitation(@invitation, signup_url(@invitation.token))
-      flash[:notice] = "Thank you, invitation sent."
+      flash[:notice] = t("messages.success")
       redirect_to root_url
     else
       render :action => 'new'

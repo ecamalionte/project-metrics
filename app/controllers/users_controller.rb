@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Thank you for signing up!"
+      redirect_to root_url, notice: t("messages.success")
     else
       render "new"
     end
