@@ -18,6 +18,6 @@ class InvitationsController < ApplicationController
 
   private
     def invitation_params
-      params.require(:invitation).permit(:sender_id, :recipient_email, :token, :sent_at)
+      params.require(:invitation).permit(:recipient_email, :group_id, :role_id)
     end
 end

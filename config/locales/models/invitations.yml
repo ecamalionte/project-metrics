@@ -7,4 +7,6 @@ pt-BR:
         other: "Convites"
     attributes:
       invitation:
-        recipient_email: "E-mail"
+        recipient_email: "E-mail do convidado"
+        group_id: "Grupo do usuário"
+        role_id: "Permissão que este usuário irá ter"

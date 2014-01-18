@@ -2,7 +2,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :sender, class_name: 'User'
   has_one :recipient, class_name: 'User'
 
-  validates_presence_of :recipient_email
+  validates :recipient_email, :group_id, :role_id, presence: true
   validate :recipient_is_not_registered
 
   before_create :generate_token

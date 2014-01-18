@@ -20,11 +20,6 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.role == "admin"
+    self.role.name == "admin"
   end
-
-  def member?
-    self.role == "member"
-  end
-
 end
