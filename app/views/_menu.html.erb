@@ -18,9 +18,12 @@
             <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_index_path %></li>
             <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
             <li class="menu-span"><%= link_to t("menu.project"), projects_path %></li>
-              <% if can? :create, Group %>
-                <li class="menu-span"><%= link_to t("menu.groups"), groups_path %></li>
-              <% end %>
+            <% if can? :create, Group %>
+              <li class="menu-span"><%= link_to t("menu.groups"), groups_path %></li>
+            <% end %>
+            <% if can? :create, Invitation %>
+              <li class="menu-span"><%= link_to t("menu.invitations"), new_invitation_path %></li>
+            <% end %>
             </ul>
         </div>
       <% end %>
