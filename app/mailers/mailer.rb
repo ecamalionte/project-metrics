@@ -8,7 +8,6 @@ class Mailer < ActionMailer::Base
 
     invitation.update_attribute(:sent_at, Time.now)
     mail(to: @recipient,
-         subject: "[Signed up] Welcome #{@recipient}"
-    )
+         subject: "[Signed up] Welcome #{@recipient}")
   end
 end
