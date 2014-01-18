@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   has_many   :comments
   has_many   :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
   belongs_to :invitation
+  belongs_to :role
 
   validates :group_id, :invitation_id, presence: true
   validates :email, :invitation_id, uniqueness: true
   validates :email, :password, :role, presence: true
-  validates :role, :inclusion => { :in => %w(admin member), :message => "%{value} is not a valid role" }
 
   def invitation_token
       invitation.token if invitation

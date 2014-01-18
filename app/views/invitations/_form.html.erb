@@ -1,5 +1,8 @@
 <%= simple_form_for @invitation, :html => { :class => 'form-horizontaln well' } do |f| %>
   <%= f.input :recipient_email %>
+  <%= f.input :group_id, collection: Group.all %>
+  <%= f.input :role_id, collection: Role.all %>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
