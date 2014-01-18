@@ -1,5 +1,5 @@
 class Mailer < ActionMailer::Base
-  default from: "bacarini.bruno@gmail.com"
+  default from: "community.notifier@gmail.com"
 
   def invitation(invitation, signup_url)
     @recipient = invitation.recipient_email

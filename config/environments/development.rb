@@ -33,8 +33,8 @@ Community::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'example.com',
-    user_name:            'bacarini.bruno@gmail.com',
-    password:             'bakalo88',
+    user_name:            'community.notifier@gmail.com',
+    password:             'bacarinieric',
     authentication:       'plain',
     enable_starttls_auto: true 
   }
