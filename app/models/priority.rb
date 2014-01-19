@@ -1,10 +1,10 @@
 class Priority
   MAP = {
-    urgent:    4,
-    important: 3,
-    relevant:  2,
-    wanted:    1,
-    unwanted:  0,
+    urgent:    5,
+    important: 4,
+    relevant:  3,
+    wanted:    2,
+    unwanted:  1,
   }
 
   def self.get_weight(priority)

@@ -38,7 +38,7 @@ class Vote < ActiveRecord::Base
     total = 0
     votes.each do |priority, number_of_votes|
       weight = Priority.get_weight(priority)
-      total += weight * number_of_votes
+      total += (weight * number_of_votes)
     end
     { ranking_points: total }
   end
