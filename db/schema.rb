@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111145439) do
+ActiveRecord::Schema.define(version: 20140118174046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20140111145439) do
     t.datetime "updated_at"
   end
 
+  create_table "invitations", force: true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_email"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "group_id"
+    t.integer  "role_id"
+  end
+
+  add_index "invitations", ["group_id"], name: "index_invitations_on_group_id", using: :btree
+  add_index "invitations", ["role_id"], name: "index_invitations_on_role_id", using: :btree
+
   create_table "problems", force: true do |t|
     t.string   "title"
     t.string   "desc"
@@ -51,16 +65,24 @@ ActiveRecord::Schema.define(version: 20140111145439) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role",            default: "member"
     t.integer  "group_id"
+    t.integer  "invitation_id"
+    t.integer  "role_id"
   end
 
   add_index "users", ["group_id"], name: "index_users_on_group_id", using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "value"

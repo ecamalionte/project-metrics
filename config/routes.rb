@@ -1,8 +1,10 @@
 Community::Application.routes.draw do
 
+  resources :invitations
+
   resources :groups
 
-  get 'signup',    to: 'users#new',        as: 'signup'
+  get 'signup/:invitation_token',    to: 'users#new',        as: 'signup'
   get 'login',     to: 'sessions#new',     as: 'login'
   get 'logout',    to: 'sessions#destroy', as: 'logout'
 
