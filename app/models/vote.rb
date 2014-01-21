@@ -31,7 +31,11 @@ class Vote < ActiveRecord::Base
 
   def self.build_winner(votes)
     winner_value = votes.values.max
-    { winner: votes.key(winner_value) }
+    if winner_value == 0
+      { winner: nil }
+    else
+      { winner: votes.key(winner_value) }
+    end
   end
 
   def self.build_ranking_points(votes)
