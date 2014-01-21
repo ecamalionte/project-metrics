@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @projects.each { |project| project.calculete_priority }
+    @projects.sort_by!{ |project| project.priority[:ranking_points] }
+    @projects.reverse!
   end
 
   def show
@@ -28,7 +31,7 @@ class ProjectsController < ApplicationController
       else
         format.html {
           flash[:error] =  t("messages.error")
-          render 'new' 
+          render 'new'
         }
       end
     end
@@ -41,7 +44,7 @@ class ProjectsController < ApplicationController
       else
         format.html {
           flash[:error] =  t("messages.error")
-          render 'edit' 
+          render 'edit'
         }
       end
     end

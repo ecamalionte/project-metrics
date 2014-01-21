@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
   RISK_LIMIT_RATE = 50
 
+  attr_accessor :priority
+
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
@@ -52,5 +54,9 @@ class Project < ActiveRecord::Base
   def progress_danger?
     return 0 unless progress_rate
     return true if progress_rate < consumed_time_rate && consumed_time_rate > RISK_LIMIT_RATE
+  end
+
+  def calculete_priority
+    @priority = Vote.statistics(self)
   end
 end

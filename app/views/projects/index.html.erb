@@ -5,7 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Pontos</th>
+      <th><%= t('priority.title') %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:progress_rate) %></th>
       <th><%= model_class.human_attribute_name(:consumed_rate)  %></th>
@@ -17,8 +18,12 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.id, project_path(project) %></td>
-        <td><%= project.title %></td>
+        <td><%= project.priority[:ranking_points]%></td>
+        <td><span class="<%= detect_priority_label(project)%>">
+            <%= humanize_priority(project.priority[:winner])%>
+          </span>
+        </td>
+        <td><h6><%= link_to project.title, project_path(project) %></h6></td>
         <td>
           <div class="progress progress-striped active">
             <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>

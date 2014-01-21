@@ -7,9 +7,9 @@ pt-BR:
         other: "Projetos"
     attributes:
       project:
-        title: "Nome"
+        title: "Título"
         description: "Descrição"
-        progress_rate: "Progresso até o momento"
-        consumed_rate: "Tempo consumido"
-        started_at: "Data de início"
-        dead_line_at: "Data final"
+        progress_rate: "Progresso"
+        consumed_rate: "Consumido"
+        started_at: "Início"
+        dead_line_at: "Final"
