@@ -18,7 +18,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.priority[:ranking_points]%></td>
+        <td><%= link_to project.priority[:ranking_points], project_projects_votes_statistics_path(project)%></td>
         <td><span class="<%= detect_priority_label(project)%>">
             <%= humanize_priority(project.priority[:winner])%>
           </span>
