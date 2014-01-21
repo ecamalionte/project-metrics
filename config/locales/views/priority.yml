@@ -1,0 +1,11 @@
+pt-BR:
+  priority:
+    title:     "Prioridade"
+    urgent:    "Urgente"
+    important: "Importante"
+    relevant:  "Relevante"
+    wanted:    "Desejado"
+    unwanted:  "Não Fazer"
+    pending:   "-"
+
+
