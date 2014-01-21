@@ -1,5 +1,4 @@
 module ProjectsHelper
-
   def detect_alerts(project)
     return if project.blank?
     return 'progress-success' if project.progress_success?

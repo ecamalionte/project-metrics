@@ -3,7 +3,7 @@
     <p>Aqui vai o texto para as coisas urgentes</p>
     <p>
       <a class="btn btn-large btn-inverse" href="" onClick="community.votes.submit(<%= Priority.urgent %>);">
-        Urgente
+        <%= humanize_priority(:urgent) %>
       </a>
     </p>
   </div>
@@ -12,7 +12,7 @@
     <p>Aqui vai o texto para as coisas importantes</p>
     <p>
       <a class="btn btn-large btn-danger" href="" onClick="community.votes.submit(<%= Priority.important %>);">
-        Importante
+        <%= humanize_priority(:important) %>
       </a>
     </p>
   </div>
@@ -23,7 +23,7 @@
     <p>Aqui vai o texto para as coisas necessárias</p>
     <p>
       <a class="btn btn-large btn-warning" href="" onClick="community.votes.submit(<%= Priority.relevant %>);">
-        Necessário
+        <%= humanize_priority(:relevant) %>
       </a>
     </p>
   </div>
@@ -32,7 +32,7 @@
     <p>Aqui vai o texto para as coisas desejáveis</p>
     <p>
       <a class="btn btn-large btn-success" href="" onClick="community.votes.submit(<%= Priority.wanted %>);">
-        Desejado
+        <%= humanize_priority(:wanted) %>
       </a>
     </p>
   </div>
@@ -40,11 +40,11 @@
 
 
 <div class='row'>
- <div class="well span4">
-   <p>Aqui vai o texto para as coisas que não devemos fazer</p>
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas que não devemos fazer</p>
     <p>
       <a class="btn btn-large btn-primary" href="" onClick="community.votes.submit(<%= Priority.unwanted %>);">
-        Não fazer
+        <%= humanize_priority(:unwanted) %>
       </a>
     </p>
   </div>
