@@ -17,7 +17,14 @@
             <li class="menu-span"><%= link_to "Home", root_path %></li>
             <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_index_path %></li>
             <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
-            <li class="menu-span"><%= link_to t("menu.projects"), projects_path %></li>
+            <li class="dropdown menu-span">
+              <a class="dropdown-toggle"  data-toggle="dropdown" href="#"><%= t("menu.projects.title") %><b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <li><%= link_to t("menu.projects.in_progress"), in_progress_path %></li>
+                <li><%= link_to t("menu.projects.finished"), finished_path %></li>
+              </ul>
+            </li>
+
             <% if can? :create, Group %>
               <li class="menu-span"><%= link_to t("menu.groups"), groups_path %></li>
             <% end %>

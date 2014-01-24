@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index, :show]
   
   load_and_authorize_resource
   permit_params :name

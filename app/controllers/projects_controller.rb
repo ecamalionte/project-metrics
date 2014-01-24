@@ -1,15 +1,22 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index, :show]
 
   load_and_authorize_resource
   permit_params :title, :description, :progress_rate, :started_at, :dead_line_at
 
-  def index
+  def in_progress
     @projects = Project.all
-    @projects.each { |project| project.calculete_priority }
-    @projects.sort_by!{ |project| project.priority[:ranking_points] }
-    @projects.reverse!
+    unless @projects
+      @projects.each { |project| project.calculete_priority }
+      @projects.sort_by!{ |project| project.priority[:ranking_points] }
+      @projects.reverse!
+    end
+    render "index"
+  end
+
+  def finished
+    @projects = Project.all
+    render "index"
   end
 
   def show

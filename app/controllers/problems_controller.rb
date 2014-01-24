@@ -1,6 +1,5 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize, except: [:index, :show]
   
   load_and_authorize_resource
   permit_params :title, :desc
