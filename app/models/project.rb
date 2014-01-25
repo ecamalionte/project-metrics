@@ -12,6 +12,9 @@ class Project < ActiveRecord::Base
   validates :progress_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
   validate :dead_line_cannot_be_in_the_past, :dead_line_cannot_be_less_than_start
 
+  scope :in_progress, -> { where("dead_line_at >= ?", Time.now) }
+  scope :finished, -> { where("dead_line_at < ?", Time.now) }
+
   #custom validations
   def dead_line_cannot_be_in_the_past
     if dead_line_at.present? && dead_line_at < Date.today

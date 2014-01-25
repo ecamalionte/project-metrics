@@ -1,21 +1,19 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:in_progress, :finished]
   permit_params :title, :description, :progress_rate, :started_at, :dead_line_at
 
   def in_progress
-    @projects = Project.all
-    unless @projects
-      @projects.each { |project| project.calculete_priority }
-      @projects.sort_by!{ |project| project.priority[:ranking_points] }
-      @projects.reverse!
-    end
+    @projects = Project.in_progress
+    priority
     render "index"
   end
 
   def finished
-    @projects = Project.all
+    @projects = Project.finished
+    @finished = true
+    priority
     render "index"
   end
 
@@ -66,16 +64,20 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-      @commentable = @project
-      @comments = @commentable.comments
-      @comment = Comment.new
-    end
+  def set_project
+    @project = Project.find(params[:id])
+    @commentable = @project
+    @comments = @commentable.comments
+    @comment = Comment.new
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:title, :description, :progress_rate, :started_at, :dead_line_at)
-    end
+  def project_params
+    params.require(:project).permit(:title, :description, :progress_rate, :started_at, :dead_line_at)
+  end
+
+  def priority
+    @projects.each { |project| project.calculete_priority }
+    @projects.sort_by!{ |project| project.priority[:ranking_points] }
+    @projects.reverse!
+  end
 end
