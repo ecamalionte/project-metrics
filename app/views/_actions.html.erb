@@ -1,4 +1,4 @@
-<%= link_to t('.comment', :default => t("helpers.links.comment")),
+<%= link_to t('.comment', :default => "#{object.comments_count} #{t("comment.title")}"),
             build_path_comments_for(object), :class => 'btn btn-mini' %>
 
             
