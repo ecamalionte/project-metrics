@@ -3,12 +3,13 @@ class Project < ActiveRecord::Base
 
   attr_accessor :priority
 
+  belongs_to :user
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
 
   #validates
-  validates :title, :started_at, :dead_line_at, presence: true
+  validates :title, :started_at, :dead_line_at, :user_id, presence: true
   validates :progress_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
   validate :dead_line_cannot_be_in_the_past, :dead_line_cannot_be_less_than_start
 
