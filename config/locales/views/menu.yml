@@ -8,7 +8,9 @@ pt-BR:
       in_progress: "Em andamento"
       finished: "Finalizados"
     problems: "Problemas"
-    groups: "Grupos"
-    invitations: "Convidar Usuários"
+    settings:
+      title: "Configurações"
+      groups: "Grupos"
+      invitations: "Convidar Usuários"
     logout: "Sair"
     hello: "Olá, "

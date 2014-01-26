@@ -18,6 +18,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
+    @problem.user = current_user
     respond_to do |format|
       if @problem.save
         format.html { redirect_to @problem, notice: t("messages.success") }

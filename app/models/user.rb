@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     
   belongs_to :group
   has_many   :comments
+  has_many   :problems
+  has_many   :projects
   has_many   :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
   belongs_to :invitation
   belongs_to :role

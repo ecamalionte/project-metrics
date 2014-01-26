@@ -2,6 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<% unless defined? @finished%>
+  <% if can? :create, Project %>
+    <%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary' %>
+<br/>
+<br/>
+  <% end %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -44,8 +51,3 @@
   </tbody>
 </table>
 
-<% unless defined? @finished%>
-  <% if can? :create, Project %>
-    <%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary' %>
-  <% end %>
-<% end %>
