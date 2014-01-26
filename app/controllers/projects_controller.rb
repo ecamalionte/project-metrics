@@ -4,6 +4,11 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource except: [:in_progress, :finished]
   permit_params :title, :description, :progress_rate, :started_at, :dead_line_at
 
+  def index
+    @projects = Project.all
+    priority
+  end
+
   def in_progress
     @projects = Project.in_progress
     priority
