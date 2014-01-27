@@ -8,6 +8,7 @@ class Priority
   }
 
   def self.get_weight(priority)
+    return 0 if priority == :unwanted
     MAP[priority]
   end
 
