@@ -2,7 +2,6 @@ class VotesController < ApplicationController
   include VotesHelper
 
   before_action :load_votable
-  before_action :authorize, except: [:index, :show]
 
   def index
     @votes = @votable.votes

@@ -3,9 +3,14 @@ pt-BR:
   menu:
     dashboard: "Resumo"
     vote: "Vote aqui"
-    projects: "Projetos"
+    projects:
+      title: "Projetos"
+      in_progress: "Em andamento"
+      finished: "Finalizados"
     problems: "Problemas"
-    groups: "Grupos"
-    invitations: "Convidar Usuários"
+    settings:
+      title: "Configurações"
+      groups: "Grupos"
+      invitations: "Convidar Usuários"
     logout: "Sair"
     hello: "Olá, "

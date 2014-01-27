@@ -1,15 +1,25 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:index, :show]
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:in_progress, :finished]
   permit_params :title, :description, :progress_rate, :started_at, :dead_line_at
 
   def index
     @projects = Project.all
-    @projects.each { |project| project.calculete_priority }
-    @projects.sort_by!{ |project| project.priority[:ranking_points] }
-    @projects.reverse!
+    priority
+  end
+
+  def in_progress
+    @projects = Project.in_progress
+    priority
+    render "index"
+  end
+
+  def finished
+    @projects = Project.finished
+    @finished = true
+    priority
+    render "index"
   end
 
   def show
@@ -24,6 +34,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.user = current_user
 
     respond_to do |format|
       if @project.save
@@ -59,16 +70,20 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-      @commentable = @project
-      @comments = @commentable.comments
-      @comment = Comment.new
-    end
+  def set_project
+    @project = Project.find(params[:id])
+    @commentable = @project
+    @comments = @commentable.comments
+    @comment = Comment.new
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:title, :description, :progress_rate, :started_at, :dead_line_at)
-    end
+  def project_params
+    params.require(:project).permit(:title, :description, :progress_rate, :started_at, :dead_line_at)
+  end
+
+  def priority
+    @projects.each { |project| project.calculete_priority }
+    @projects.sort_by!{ |project| project.priority[:ranking_points] }
+    @projects.reverse!
+  end
 end

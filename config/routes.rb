@@ -12,6 +12,11 @@ Community::Application.routes.draw do
   resources :users
   resources :sessions
 
+  scope :projects do
+    get 'in_progress', to:'projects#in_progress'
+    get 'finished', to:'projects#finished'
+  end
+
   resources :projects do
     resources :comments
     resources :votes

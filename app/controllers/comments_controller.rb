@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   include CommentsHelper
 
   before_action :load_commentable
-  before_action :authorize, except: [:index, :show]
 
   def index
     @comments = @commentable.comments

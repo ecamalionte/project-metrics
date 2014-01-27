@@ -1,6 +1,5 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy] 
-  before_action :authorize, except: [:index, :show]
   
   load_and_authorize_resource
   permit_params :title, :desc
@@ -19,6 +18,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
+    @problem.user = current_user
     respond_to do |format|
       if @problem.save
         format.html { redirect_to @problem, notice: t("messages.success") }

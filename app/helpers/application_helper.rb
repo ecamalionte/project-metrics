@@ -26,4 +26,8 @@ module ApplicationHelper
       I18n.t("priority.pending")
     end
   end
+
+  def can_settings?
+    (can? :manage, Group) && (can? :manage, Invitation)
+  end
 end
