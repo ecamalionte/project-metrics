@@ -61,6 +61,6 @@ class Project < ActiveRecord::Base
   end
 
   def calculete_priority
-    @priority = Vote.statistics(self)
+    @priority = PriorityStatisticBuilder.statistics_by_votable(self)
   end
 end
