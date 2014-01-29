@@ -9,6 +9,11 @@ module ApplicationHelper
     send("#{obj_name}_path", id: obj.id)
   end
 
+  def build_path_to_destroy_for(obj)
+    obj_name = obj.class.name.underscore
+    send("#{obj_name}_path", id: obj.id)
+  end
+
   def detect_priority_label(project)
     priority_name = project.priority[:winner]
     return if priority_name.blank?

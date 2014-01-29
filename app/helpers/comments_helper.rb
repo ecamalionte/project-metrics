@@ -36,4 +36,9 @@ module CommentsHelper
     commentable_name = @commentable.class.name.underscore
     send("#{commentable_name}_comment_path", id: comment.id)
   end
+
+  def build_root_path_for_commentable
+    commentable_name = @commentable.class.name.underscore
+    send("#{commentable_name}s_path")
+  end
 end

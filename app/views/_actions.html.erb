@@ -1,7 +1,7 @@
 <%= link_to t('.comment', :default => "#{object.comments_count} #{t("comment.title")}"),
             build_path_comments_for(object), :class => 'btn btn-mini' %>
 
-            
+
             <% unless defined? @finished%>
               <%= link_to t('.vote', :default => t("helpers.links.vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(object)}')", :class => 'btn btn-mini' %>
 
