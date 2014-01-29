@@ -1,10 +1,10 @@
-#encoding: UTF-8 
+#encoding: UTF-8
 pt-BR:
   activerecord:
     models:
-      group: 
-        one: "Grupo"
-        other: "Grupos"
+      group:
+        one: "Apartamento"
+        other: "Apartamentos"
     attributes:
       group:
         name: "Nome"

@@ -1,5 +1,5 @@
-#encoding: UTF-8           
-pt-BR:   
+#encoding: UTF-8
+pt-BR:
   menu:
     dashboard: "Resumo"
     vote: "Vote aqui"
@@ -10,7 +10,7 @@ pt-BR:
     problems: "Problemas"
     settings:
       title: "Configurações"
-      groups: "Grupos"
+      groups: "Apartamentos"
       invitations: "Convidar Usuários"
     logout: "Sair"
     hello: "Olá, "
