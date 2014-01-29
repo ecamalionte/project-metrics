@@ -12,7 +12,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Pontos</th>
       <th><%= t('priority.title') %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:progress_rate) %></th>
@@ -25,10 +24,13 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.priority[:ranking_points], project_projects_votes_statistics_path(project)%></td>
-        <td><span class="<%= detect_priority_label(project)%>">
+        <td>
+          <span id='priority_<%=project.id%>'class="<%= detect_priority_label(project)%>">
             <%= humanize_priority(project.priority[:winner])%>
           </span>
+          <script>
+            community.projects.show_points_binder('<%= project.id%>', '<%= t('priority.points.other', p: project.priority[:ranking_points])%>', '<%= humanize_priority(project.priority[:winner])%>', '<%=project_projects_votes_statistics_path(project)%>'  );
+          </script>
         </td>
         <td><h6><%= link_to project.title, project_path(project) %></h6></td>
         <td>
@@ -51,3 +53,11 @@
   </tbody>
 </table>
 
+<div class="modal fade modal-center" id="statModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
