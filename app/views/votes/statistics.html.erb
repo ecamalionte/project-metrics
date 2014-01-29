@@ -73,6 +73,35 @@ $(function () {
   });
 </script>
 
-<%= @statistics %>
+<table class="table table-condensed span4">
+  <tr class="btn-inverse">
+    <td><%= t('priority.urgent')%></td>
+    <td><%= @statistics[:urgent] %> </td>
+  </tr>
+  <tr class="btn-danger">
+    <td><%= t('priority.important')%></td>
+    <td><%= @statistics[:important] %> </td>
+  </tr>
+  <tr class="btn-warning">
+    <td><%= t('priority.relevant')%></td>
+    <td><%= @statistics[:relevant] %> </td>
+  </tr>
+  <tr class="btn-success">
+    <td><%= t('priority.wanted')%></td>
+    <td><%= @statistics[:wanted] %> </td>
+  </tr>
+  <tr class="btn-primary">
+    <td><%= t('priority.unwanted')%></td>
+    <td><%= @statistics[:unwanted] %> </td>
+  </tr>
+  <tr>
+    <td><b><%= t('priority.total')%></b></td>
+    <td><b><%= @statistics[:total] %> votos</b></td>
+  </tr>
+  <tr>
+    <td><b><%= t('priority.ranking_points')%></b></td>
+    <td><b><%= @statistics[:ranking_points] %> pontos</b></td>
+  </tr>
+</table>
 
 
