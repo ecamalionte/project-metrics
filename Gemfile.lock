@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rails/sprockets-rails.git
-  revision: 7d53c55c96a1f900553038d6354136fed8536c8a
+  revision: f7576e0e56906edff15d812a6d41429487be80d5
   specs:
     sprockets-rails (2.0.1)
       actionpack (>= 3.0)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: f634e07d9c567e8e46abf95355514956121923d5
+  revision: a716a4d42241b18d2f8ed8c7ce2fb291cf609904
   specs:
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
