@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :redirect_to_dashboard, only: [:new, :create] 
   before_action :set_user, only: :create
 
+  load_and_authorize_resource only: :edit
+
   def new
     @user = User.new(invitation_token: params[:invitation_token])
     if @user.invitation
@@ -19,6 +21,9 @@ class UsersController < ApplicationController
       flash.now.alert = "Não foi possível cadastrar usuário."
       render "new"
     end
+  end
+
+  def edit
   end
 
   private
