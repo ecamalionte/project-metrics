@@ -1,0 +1,10 @@
+#encoding: UTF-8 
+pt-BR:
+  activerecord:
+    models:
+      user: 
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      user:
+        username: "Login"

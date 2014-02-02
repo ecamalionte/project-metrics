@@ -16,18 +16,17 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: t("messages.success")
     else
-      flash.now.alert = "Email, Login ou senha inválidos"
+      flash.now.alert = "Não foi possível cadastrar usuário."
       render "new"
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:email, :username, :password, :password_confirmation, :role_id, :group_id)
+    params.require(:user).permit(:email, :username, :password, :password_confirmation, :role_id, :group_id, :invitation_id)
   end
 
   def set_user
     @user = User.new(user_params)
-    @user.invitation = Invitation.find_by token: params[:user][:invitation_token]
   end
 end
