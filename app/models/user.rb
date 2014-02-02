@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   belongs_to :invitation
   belongs_to :role
 
-  validates :group_id, :invitation_id, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :email, :invitation_id, uniqueness: true
-  validates :email, :password, :role, presence: true
+  validates :email, :username, :password, :role, :group_id, :invitation_id, presence: true
 
   def invitation_token
       invitation.token if invitation
