@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     if user.admin? 
       can :manage, :all
+      cannot :manage, Comment do |comment|
+        comment.try(:user) != user 
+      end
     else
       can :read, :all
       can :create, Comment
