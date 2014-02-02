@@ -46,7 +46,8 @@
                 <a class="dropdown-toggle"  data-toggle="dropdown" href="#"><%= t("menu.settings.title") %><b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                   <li><%= link_to t("menu.settings.groups"), groups_path %></li>
-                  <li><%= link_to t("menu.settings.invitations"), new_invitation_path %></li>
+                  <li><%= link_to "Enviar convite", new_invitation_path %></li>
+                  <li><%= link_to "Cadastrar usuário", new_user_path %></li>
                 </ul>
               </li>
             <% end %>

@@ -9,6 +9,10 @@ class Invitation < ActiveRecord::Base
 
   before_create :generate_token
 
+  def self.fake(recipient_email, group_id, role_id)
+    create! recipient_email: recipient_email, group_id: group_id, role_id: role_id
+  end
+
   private
 
   def recipient_is_not_registered

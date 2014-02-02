@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :redirect_to_dashboard, only: [:new, :create] 
   before_action :set_user, only: :create
+  before_action :set_invitation, only: :create
 
   load_and_authorize_resource only: :edit
 
@@ -23,6 +24,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_new
+    if @user.save
+      redirect_to root_url, notice: t("messages.success")
+    else
+      flash.now.alert = "Não foi possível cadastrar usuário."
+      render "new"
+    end
+  end
+
   def edit
   end
 
@@ -33,5 +43,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.new(user_params)
+  end
+
+  def set_invitation
+    @user.invitation = Invitation.fake(@user.email, @user.group_id, @user.role_id) if @user.invitation.nil? && current_user.present?
   end
 end

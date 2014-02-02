@@ -1,4 +1,9 @@
 <div class="page-header">
-  <h1>Registra-se</h1>
+  <% if @user.invitation %>
+    <h1>Registra-se</h1>
+    <%= render :partial => 'form' %>
+  <% elsif current_user %>
+    <h1>Cadastrar Novo Usuário</h1>
+    <%= render :partial => 'form_new' %>
+  <% end %>
 </div>
-<%= render :partial => 'form' %>
