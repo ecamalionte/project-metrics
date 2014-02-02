@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: t("messages.success")
     else
+      flash.now.alert = "Email, Login ou senha inválidos"
       render "new"
     end
   end
