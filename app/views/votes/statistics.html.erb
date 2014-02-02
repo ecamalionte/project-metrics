@@ -103,5 +103,7 @@ $(function () {
     <td><b><%= @statistics[:ranking_points] %> pontos</b></td>
   </tr>
 </table>
-
-
+<div class="button_back" >
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+    projects_path, :class => 'btn'  %>
+  </div>
