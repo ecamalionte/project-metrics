@@ -3,6 +3,6 @@ class Group < ActiveRecord::Base
   has_many :votes
   has_many :invitations
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :block, :number, presence: true
+  validates :block, :uniqueness => {scope: :number}
 end

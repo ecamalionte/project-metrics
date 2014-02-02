@@ -7,4 +7,5 @@ pt-BR:
         other: "Apartamentos"
     attributes:
       group:
-        name: "Nome"
+        number: "Número"
+        block: "Bloco"

@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   
   load_and_authorize_resource
-  permit_params :name
+  permit_params :number, :block
 
   def index
     @groups = Group.all
@@ -57,6 +57,6 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:number, :block)
     end
 end
