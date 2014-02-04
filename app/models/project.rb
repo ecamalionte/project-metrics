@@ -63,4 +63,10 @@ class Project < ActiveRecord::Base
   def calculete_priority
     @priority = PriorityStatisticBuilder.statistics_by_votable(self)
   end
+
+  def my_vote(current_user)
+    vote = self.votes.where(group_id: current_user.group_id).first
+    return nil unless vote
+    Priority.get_instance vote.value
+  end
 end
