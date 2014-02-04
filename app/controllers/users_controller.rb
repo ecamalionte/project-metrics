@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :redirect_to_dashboard, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  load_and_authorize_resource only: :edit
+  load_and_authorize_resource only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -55,9 +54,5 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :username, :password, :password_confirmation, :role_id, :group_id, :invitation_id)
-  end
-
-  def set_user
-    @user = User.find(params[:id])
   end
 end
