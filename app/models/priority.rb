@@ -1,4 +1,6 @@
 class Priority
+  attr_accessor :id, :type
+
   MAP = {
     urgent:    5,
     important: 4,
@@ -7,9 +9,18 @@ class Priority
     unwanted:  1,
   }
 
-  def self.get_weight(priority)
-    return -1 if priority == :unwanted
-    MAP[priority]
+  def initialize(id, type)
+    self.id = id
+    self.type = type
+  end
+
+  def self.get_weight(type)
+    return -1 if type == :unwanted
+    MAP[type]
+  end
+
+  def self.get_instance(id)
+    Priority.new id, MAP.invert[id]
   end
 
   def self.urgent

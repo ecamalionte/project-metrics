@@ -8,6 +8,8 @@ pt-BR:
       destroy: "Apagar"
       new: "Criar"
       edit: "Editar"
+      vote: "Votar"
+      change_vote: "Alterar voto"
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"

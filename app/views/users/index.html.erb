@@ -6,13 +6,10 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:password_digest) %></th>
-      <th><%= model_class.human_attribute_name(:group_id) %></th>
-      <th><%= model_class.human_attribute_name(:invitation_id) %></th>
-      <th><%= model_class.human_attribute_name(:role_id) %></th>
       <th><%= model_class.human_attribute_name(:username) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:group_id) %></th>
+      <th><%= model_class.human_attribute_name(:role_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,13 +17,10 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.group_id %></td>
-        <td><%= user.invitation_id %></td>
-        <td><%= user.role_id %></td>
         <td><%= user.username %></td>
-        <td><%=l user.created_at %></td>
+        <td><%= user.email %></td>
+        <td><%= user.group.number %> - <%= user.group.block %></td>
+        <td><%= user.role.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>
