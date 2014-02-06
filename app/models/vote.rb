@@ -4,7 +4,7 @@ class Vote < ActiveRecord::Base
 
   validates :group_id, presence: true
 
-   def self.statistics(votable)
+  def self.statistics(votable)
     return nil if votable.blank?
     result = {}
     votes   = build_vote_results(votable)
@@ -12,9 +12,15 @@ class Vote < ActiveRecord::Base
     ranking = build_ranking_points(votes)
     total   = build_total(votable)
     result.merge(votes)
-          .merge(winner)
-          .merge(ranking)
-          .merge(total)
+    .merge(winner)
+    .merge(ranking)
+    .merge(total)
+  end
+
+  def self.priority_by_user(current_user, votable)
+    vote = votable.votes.where(group_id: current_user.group_id).first
+    return nil unless vote
+    Priority.get_instance vote.value
   end
 
   private

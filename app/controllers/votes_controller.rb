@@ -9,6 +9,7 @@ class VotesController < ApplicationController
 
   def statistics
     @statistics = Vote.statistics(@votable)
+    @user_priority = Vote.priority_by_user(current_user, @votable)
   end
 
   def show

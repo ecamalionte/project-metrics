@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
 
   #validates
-  validates :title, :started_at, :dead_line_at, :user_id, presence: true
+  validates :title, :user_id, presence: true
   validates :progress_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
   validate :dead_line_cannot_be_in_the_past, :dead_line_cannot_be_less_than_start
 
@@ -62,11 +62,5 @@ class Project < ActiveRecord::Base
 
   def calculete_priority
     @priority = PriorityStatisticBuilder.statistics_by_votable(self)
-  end
-
-  def my_vote(current_user)
-    vote = self.votes.where(group_id: current_user.group_id).first
-    return nil unless vote
-    Priority.get_instance vote.value
   end
 end
