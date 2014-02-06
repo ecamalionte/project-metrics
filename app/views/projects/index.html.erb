@@ -25,10 +25,10 @@
     <% @projects.each do |project| %>
       <tr>
         <td>
-          <span id='priority_<%=project.id%>'class="<%= detect_priority_label(project)%>">
+          <span id='priority_<%=project.id%>' class="btn btn-mini <%= detect_priority_button(project.priority[:winner])%>">
             <%= humanize_priority(project.priority[:winner])%>
           </span>
-          <script>
+          <script type="text/javascript" language="javascript">
             community.projects.show_points_binder('<%= project.id%>', '<%= t('priority.points.other', p: project.priority[:ranking_points])%>', '<%= humanize_priority(project.priority[:winner])%>', '<%=project_projects_votes_statistics_path(project)%>'  );
           </script>
         </td>
