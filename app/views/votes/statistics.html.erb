@@ -1,60 +1,61 @@
 <div class="row">
-  <div id="votes-charts" class="span10" ></div>
-</div>
-
-<div class="row">
-
-  <div class="span4">
-    <div class="row">
-      <div class="row">
-        <% if @user_priority %>
-          <%= link_to t('.vote', :default => t("helpers.links.change_my_vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(@votable)}')", :class => "btn btn-large #{detect_priority_button(@user_priority.type)}" %>
-        <% else %>
-          <script type="text/javascript" language="javascript">
-            $.get('<%=build_path_new_vote_for(@votable)%>');
+  <div class="hero-unit">
+    <h2><%=@votable.title%><h2>
+    <p>
+      <% if @user_priority %>
+        <%= link_to t('.vote', :default => t("helpers.links.change_my_vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(@votable)}')", :class => "btn btn-large #{detect_priority_button(@user_priority.type)}" %>
+      <% else %>
+        <script type="text/javascript" language="javascript">
+          $.get('<%=build_path_new_vote_for(@votable)%>');
           </script>
           <%= link_to t('.vote', :default => t("helpers.links.vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(@votable)}')", :class => 'btn btn-large' %>
         <% end%>
-      </div>
-      <br>
-       <div class="row">
+      </p>
+      <p>
         <%= link_to t('.back', :default => t("helpers.links.back_to_list")),
           projects_path, :class => 'btn'  %>
-      </div>
+      </p>
     </div>
   </div>
-
-  <table class="table table-condensed span4">
-    <tr>
-      <td class="btn-inverse span2"><%= t('priority.urgent')%></td>
-      <td><%= @statistics[:urgent] %> </td>
-    </tr>
-    <tr>
-      <td class="btn-danger"><%= t('priority.important')%></td>
-      <td><%= @statistics[:important] %> </td>
-    </tr>
-    <tr>
-      <td class="btn-warning"><%= t('priority.relevant')%></td>
-      <td><%= @statistics[:relevant] %> </td>
-    </tr>
-    <tr>
-      <td class="btn-success"><%= t('priority.wanted')%></td>
-      <td><%= @statistics[:wanted] %> </td>
-    </tr>
-    <tr>
-      <td class="btn-primary"><%= t('priority.unwanted')%></td>
-      <td><%= @statistics[:unwanted] %> </td>
-    </tr>
-    <tr>
-      <td><b><%= t('priority.total')%></b></td>
-      <td><b><%= @statistics[:total] %> votos</b></td>
-    </tr>
-    <tr>
-      <td><b><%= t('priority.ranking_points')%></b></td>
-      <td><b><%= @statistics[:ranking_points] %> pontos</b></td>
-    </tr>
-  </table>
 </div>
+
+<div class="row">
+  <div id="votes-charts" class="span6" ></div>
+  <div class="span6">
+    <table class="table table-condensed">
+      <tr>
+        <td class="btn-inverse span2"><%= t('priority.urgent')%></td>
+        <td><%= @statistics[:urgent] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-danger"><%= t('priority.important')%></td>
+        <td><%= @statistics[:important] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-warning"><%= t('priority.relevant')%></td>
+        <td><%= @statistics[:relevant] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-success"><%= t('priority.wanted')%></td>
+        <td><%= @statistics[:wanted] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-primary"><%= t('priority.unwanted')%></td>
+        <td><%= @statistics[:unwanted] %> </td>
+      </tr>
+      <tr>
+        <td><b><%= t('priority.total')%></b></td>
+        <td><b><%= @statistics[:total] %> votos</b></td>
+      </tr>
+      <tr>
+        <td><b><%= t('priority.ranking_points')%></b></td>
+        <td><b><%= @statistics[:ranking_points] %> pontos</b></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
 
 
 
@@ -78,7 +79,7 @@ plotBorderWidth: null,
 plotShadow: false
 },
 title: {
-text: 'Resultado da votação'
+text: ''
 },
 tooltip: {
 pointFormat: '{series.name}: <b>{point.y}</b>'

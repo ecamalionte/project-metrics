@@ -14,16 +14,6 @@ module ApplicationHelper
     send("#{obj_name}_path", id: obj.id)
   end
 
-  def detect_priority_label(obj)
-    priority_name = obj.priority[:winner]
-    return '' if priority_name.blank?
-    return 'label label-inverse'    if priority_name == :urgent
-    return 'label label-important'  if priority_name == :important
-    return 'label label-warning'    if priority_name == :relevant
-    return 'label label-success'    if priority_name == :wanted
-    return 'label label-info'       if priority_name == :unwanted
-  end
-
   def detect_priority_button(priority_name)
     return '' if priority_name.blank?
     return 'btn-inverse' if priority_name == :urgent
