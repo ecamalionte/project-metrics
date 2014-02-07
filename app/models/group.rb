@@ -5,4 +5,8 @@ class Group < ActiveRecord::Base
 
   validates :block, :number, presence: true
   validates :block, :uniqueness => {scope: :number}
+
+  def to_s
+    "#{number}#{block}"
+  end
 end
