@@ -17,6 +17,9 @@ class Ability
       can [:update, :destroy], Vote do |vote|
         vote.try(:group) == user.group 
       end
+      can :update, User do |user_to_modify|
+        user_to_modify == user 
+      end
     end
   end
 end

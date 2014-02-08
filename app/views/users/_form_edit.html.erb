@@ -3,8 +3,10 @@
   <%= f.input :username, label: "Login" %>
   <%= f.input :password, label: "Senha" %>
   <%= f.input :password_confirmation, label: "Confirme sua senha" %>
-  <%= f.association :group, label: "Apartamentos"  %>
-  <%= f.association :role, label: "Permissões"  %>
+  <% if current_user.admin? %>
+    <%= f.association :group, label: "Apartamentos"  %>
+    <%= f.association :role, label: "Permissões"  %>
+  <% end %>
   <%= f.input :invitation_id, as: :hidden %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

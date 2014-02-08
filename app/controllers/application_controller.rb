@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = "Desculpe, mas não achamos o que você esta procurando."
+    redirect_to root_url
+  end
+
 
   private
 
