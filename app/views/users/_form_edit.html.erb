@@ -3,9 +3,9 @@
   <%= f.input :username, label: "Login" %>
   <%= f.input :password, label: "Senha" %>
   <%= f.input :password_confirmation, label: "Confirme sua senha" %>
-  <%= f.input :group_id, label: "Apartamento" %>
+  <%= f.association :group, label: "Apartamentos"  %>
+  <%= f.association :role, label: "Permissões"  %>
   <%= f.input :invitation_id, as: :hidden %>
-  <%= f.input :role_id, as: :hidden %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
   </div>

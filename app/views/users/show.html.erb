@@ -6,14 +6,10 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @user.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:password_digest) %>:</strong></dt>
-  <dd><%= @user.password_digest %></dd>
   <dt><strong><%= model_class.human_attribute_name(:group_id) %>:</strong></dt>
-  <dd><%= @user.group_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:invitation_id) %>:</strong></dt>
-  <dd><%= @user.invitation_id %></dd>
+  <dd><%= "#{@user.group.number}#{@user.group.block}"%></dd>
   <dt><strong><%= model_class.human_attribute_name(:role_id) %>:</strong></dt>
-  <dd><%= @user.role_id %></dd>
+  <dd><%= @user.role.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:username) %>:</strong></dt>
   <dd><%= @user.username %></dd>
 </dl>
