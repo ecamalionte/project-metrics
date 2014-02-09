@@ -51,4 +51,9 @@ module VotesHelper
     votable_name = @votable.class.name.underscore
     send("#{votable_name}_vote_path", id: vote.id)
   end
+
+  def build_path_statistics_vote_for(votable)
+    votable_name = votable.class.name.underscore
+    send("#{votable_name}_#{votable_name}s_votes_statistics_path", "#{votable_name}_id" => votable.id)
+  end
 end

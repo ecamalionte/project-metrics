@@ -34,9 +34,9 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to build_root_path_for_votable, notice: t("messages.success") }
+        format.html { redirect_to build_path_statistics_vote_for(@votable) }
       else
-        format.html { redirect_to build_root_path_for_votable, error: t("messages.error") }
+        format.html { redirect_to build_path_statistics_vote_for(@votable), error: t("messages.error") }
       end
     end
   end
@@ -46,9 +46,9 @@ class VotesController < ApplicationController
 
     respond_to do |format|
       if @vote.update(vote_params)
-        format.html { redirect_to build_root_path_for_votable, notice: t("messages.success") }
+        format.html { redirect_to build_path_statistics_vote_for(@votable) }
       else
-        format.html { redirect_to build_root_path_for_votable, error: t("messages.error") }
+        format.html { redirect_to build_path_statistics_vote_for(@votable), error: t("messages.error") }
       end
     end
   end
