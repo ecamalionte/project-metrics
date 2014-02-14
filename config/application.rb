@@ -25,9 +25,9 @@ module Community
     config.encoding = "utf-8"
     config.assets.initialize_on_precompile = true
 
-    console do
-      require "pry"
-      config.console = Pry
-    end
+ #   console do
+ #     require "pry"
+ #     config.console = Pry
+ #   end
   end
 end
