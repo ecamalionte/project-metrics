@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :role
 
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
-  validates :email, :invitation_id, uniqueness: true
+  validates :email, :username, :invitation_id, uniqueness: true
   validates :email, :username, :password, :role, :group_id, :invitation_id, presence: true
 
   def invitation_token
