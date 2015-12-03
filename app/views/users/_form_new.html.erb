@@ -1,0 +1,11 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email, label: "E-mail" %>
+  <%= f.input :username, label: "Login" %>
+  <%= f.input :password, label: "Senha" %>
+  <%= f.input :password_confirmation, label: "Confirme sua senha" %>
+  <%= f.association :group, label: "Apartamentos"  %>
+  <%= f.association :role, label: "Permissões"  %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+  </div>
+<% end %>

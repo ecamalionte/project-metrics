@@ -1,0 +1,32 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("activerecord.attributes.project.title") %></th>
+      <th><%= t("activerecord.attributes.project.description") %></th>
+      <th><%= t("activerecord.attributes.project.progress_rate") %></th>
+      <th><%= t("activerecord.attributes.project.consumed_rate") %></th>
+      <th><%= t("activerecord.attributes.project.started_at") %></th>
+      <th><%= t("activerecord.attributes.project.dead_line_at") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>
+          </div>
+        </td>
+         <td>
+           <div class="progress <%= detect_alerts(project) %> progress-striped active">
+            <div class="bar" style="width: <%= project.consumed_time_rate %>%;"><%=project.consumed_time_rate %>%</div>
+          </div>
+        </td>
+        <td><%= l project.started_at %></td>
+        <td><%= l project.dead_line_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

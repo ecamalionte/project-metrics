@@ -1,0 +1,60 @@
+<div class="navbar navbar-fixed-top navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <p class="brand"><b>Community</b></p>
+      <% if current_user %>
+        <div class="nav navbar navbar-text pull-right">
+
+          <li class="dropdown menu-span">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t("menu.hello") + current_user.username %>.
+            <i class="fa fa-caret-down"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-user">
+            <li><%= link_to "Editar Profile", edit_user_path(current_user), class: "fa fa-user"%></li>
+           <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+           </li>-->
+            <li class="divider"></li>
+            <li><%= link_to t("menu.logout"), logout_path, class: "fa fa-sign-out"%>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+          </li>
+
+
+        </div>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="menu-span"><%= link_to "Home", root_path %></li>
+            <li class="menu-span"><%= link_to t("menu.dashboard"), dashboard_index_path %></li>
+            <li class="menu-span"><%= link_to t("menu.problems"), problems_path %></li>
+            <li class="dropdown menu-span">
+              <a class="dropdown-toggle"  data-toggle="dropdown" href="#"><%= t("menu.projects.title") %><b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <li><%= link_to t("menu.projects.in_progress"), in_progress_path %></li>
+                <li><%= link_to t("menu.projects.finished"), finished_path %></li>
+              </ul>
+            </li>
+
+            <% if can_settings? %>
+              <li class="dropdown menu-span">
+                <a class="dropdown-toggle"  data-toggle="dropdown" href="#"><%= t("menu.settings.title") %><b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                  <li><%= link_to t("menu.settings.groups"), groups_path %></li>
+                  <li><%= link_to "Enviar convite", new_invitation_path %></li>
+                  <li><%= link_to "Usuários", users_path %></li>
+                </ul>
+              </li>
+            <% end %>
+
+            </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

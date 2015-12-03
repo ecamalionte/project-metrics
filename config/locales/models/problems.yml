@@ -1,0 +1,11 @@
+#encoding: UTF-8 
+pt-BR:
+  activerecord:
+    models:
+      problem: 
+        one: "Problema"
+        other: "Problemas"
+    attributes:
+      problem:
+        title: "Nome"
+        desc: "Descrição"

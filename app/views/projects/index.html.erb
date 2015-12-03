@@ -1,0 +1,63 @@
+<%- model_class = Project -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<% unless defined? @finished%>
+  <% if can? :create, Project %>
+    <%= link_to t('.new', :default => t("helpers.links.new")), new_project_path, :class => 'btn btn-primary' %>
+<br/>
+<br/>
+  <% end %>
+<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('priority.title') %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:progress_rate) %></th>
+      <th><%= model_class.human_attribute_name(:consumed_rate)  %></th>
+      <th><%= model_class.human_attribute_name(:started_at) %></th>
+      <th><%= model_class.human_attribute_name(:dead_line_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td>
+          <span id='priority_<%=project.id%>' class="btn btn-mini <%= detect_priority_button(project.priority[:winner])%>">
+            <%= humanize_priority(project.priority[:winner])%>
+          </span>
+          <script type="text/javascript" language="javascript">
+            community.projects.show_points_binder('<%= project.id%>', '<%= t('priority.points.other', p: project.priority[:ranking_points])%>', '<%= humanize_priority(project.priority[:winner])%>', '<%=project_projects_votes_statistics_path(project)%>'  );
+          </script>
+        </td>
+        <td><h6><%= link_to project.title, project_path(project) %></h6></td>
+        <td>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: <%= project.progress_rate %>%;"><%=project.progress_rate %>%</div>
+          </div>
+        </td>
+        <td>
+          <div class="progress <%= detect_alerts(project) %> progress-striped active">
+            <div class="bar" style="width: <%= project.consumed_time_rate %>%;"><%=project.consumed_time_rate %>%</div>
+          </div>
+        </td>
+        <td><%= l project.started_at %></td>
+        <td><%= l project.dead_line_at %></td>
+        <td>
+          <%= render "/actions", object: project %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal fade modal-center" id="statModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>

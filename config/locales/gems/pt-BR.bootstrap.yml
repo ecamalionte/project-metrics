@@ -1,0 +1,19 @@
+pt-BR:
+  helpers:
+    actions: "Ações"
+    links:
+      back: "Voltar"
+      back_to_list: "Retornar para a lista"
+      change_my_vote: "Alterar o meu voto"
+      cancel: "Cancelar"
+      confirm: "Tem certeza disso?"
+      destroy: "Apagar"
+      new: "Criar"
+      edit: "Editar"
+      vote: "Votar"
+      change_vote: "Alterar voto"
+    titles:
+      edit: "Editar %{model}"
+      save: "Salvar %{model}"
+      new: "Criar %{model}"
+      delete: "Apagar %{model}"

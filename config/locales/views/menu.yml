@@ -1,0 +1,16 @@
+#encoding: UTF-8
+pt-BR:
+  menu:
+    dashboard: "Resumo"
+    vote: "Vote aqui"
+    projects:
+      title: "Projetos"
+      in_progress: "Em andamento"
+      finished: "Finalizados"
+    problems: "Problemas"
+    settings:
+      title: "Configurações"
+      groups: "Apartamentos"
+      invitations: "Convidar Usuários"
+    logout: "Sair"
+    hello: "Olá, "

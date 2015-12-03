@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="hero-unit">
+    <h2><%=@votable.title%><h2>
+    <p>
+      <% if @user_priority %>
+        <%= link_to t('.vote', :default => t("helpers.links.change_my_vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(@votable)}')", :class => "btn btn-large #{detect_priority_button(@user_priority.type)}" %>
+      <% else %>
+        <script type="text/javascript" language="javascript">
+          $.get('<%=build_path_new_vote_for(@votable)%>');
+          </script>
+          <%= link_to t('.vote', :default => t("helpers.links.vote")), '#',  onclick: "$.get('#{build_path_new_vote_for(@votable)}')", :class => 'btn btn-large' %>
+        <% end%>
+      </p>
+      <p>
+        <%= link_to t('.back', :default => t("helpers.links.back_to_list")),
+          projects_path, :class => 'btn'  %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div id="votes-charts" class="span6" ></div>
+  <div class="span6">
+    <table class="table table-condensed">
+      <tr>
+        <td class="btn-inverse span2"><%= t('priority.urgent')%></td>
+        <td><%= @statistics[:urgent] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-danger"><%= t('priority.important')%></td>
+        <td><%= @statistics[:important] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-warning"><%= t('priority.relevant')%></td>
+        <td><%= @statistics[:relevant] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-success"><%= t('priority.wanted')%></td>
+        <td><%= @statistics[:wanted] %> </td>
+      </tr>
+      <tr>
+        <td class="btn-primary"><%= t('priority.unwanted')%></td>
+        <td><%= @statistics[:unwanted] %> </td>
+      </tr>
+      <tr>
+        <td><b><%= t('priority.total')%></b></td>
+        <td><b><%= @statistics[:total] %> votos</b></td>
+      </tr>
+      <tr>
+        <td><b><%= t('priority.ranking_points')%></b></td>
+        <td><b><%= @statistics[:ranking_points] %> pontos</b></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+      // Radialize the colors
+      Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+        return {
+radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+stops: [
+[0, color],
+[1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+]
+};
+});
+
+      $('#votes-charts').highcharts({
+chart: {
+plotBackgroundColor: null,
+plotBorderWidth: null,
+plotShadow: false
+},
+title: {
+text: ''
+},
+tooltip: {
+pointFormat: '{series.name}: <b>{point.y}</b>'
+},
+plotOptions: {
+pie: {
+allowPointSelect: true,
+cursor: 'pointer',
+dataLabels: {
+enabled: true,
+color: '#000000',
+connectorColor: '#000000',
+format: '<b>{point.name}</b>: {point.percentage:.1f}% '
+}
+}
+},
+series: [{
+type: 'pie',
+      name: 'Número de Votos',
+      data: [
+      {
+name: 'Urgente',
+      y: <%= @statistics[:urgent]%>,
+      color: '#303030',
+      },
+      {
+name: 'Importante',
+      y: <%= @statistics[:important]%>,
+      color: '#D84C47'
+      },
+      {
+name: 'Relevante',
+      y: <%= @statistics[:relevant]%>,
+      sliced: true,
+      selected: true,
+      color: '#FAA329'
+      },
+      {
+name: 'Desejado',
+      y: <%= @statistics[:wanted]%>,
+      color: '#56AD56'
+      },
+      {
+name: 'Não fazer',
+      y: <%= @statistics[:unwanted]%>,
+      color: '#0061CC'
+      },
+      ]
+        }]
+});
+});
+</script>
+
+
+
+
+

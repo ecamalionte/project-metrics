@@ -1,0 +1,11 @@
+#encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      comment:
+        one: "Comentário"
+        other: "Comentários"
+    attributes:
+      comment:
+        content: "Comentário"
+        created_at: "Data de criação"

@@ -1,0 +1,10 @@
+<%= simple_form_for @comment, url: build_action_for_comment(@comment), :html => { :class => 'well' } do |f| %>
+  <%= f.input :content %>
+  <%= f.input :commentable_id, as: :hidden %>
+  <%= f.input :commentable_type, as: :hidden %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                build_path_comments, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+<div class='row'>
+  <div class="well span4 back-gray">
+    <p>Aqui vai o texto para as coisas urgentes</p>
+    <p>
+      <a class="btn btn-large btn-inverse" href="" onClick="community.votes.submit(<%= Priority.urgent %>);">
+        <%= humanize_priority(:urgent) %>
+      </a>
+    </p>
+  </div>
+
+  <div class="well span4 back-danger">
+    <p>Aqui vai o texto para as coisas importantes</p>
+    <p>
+      <a class="btn btn-large btn-danger" href="" onClick="community.votes.submit(<%= Priority.important %>);">
+        <%= humanize_priority(:important) %>
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="well span4 back-warning">
+    <p>Aqui vai o texto para as coisas necessárias</p>
+    <p>
+      <a class="btn btn-large btn-warning" href="" onClick="community.votes.submit(<%= Priority.relevant %>);">
+        <%= humanize_priority(:relevant) %>
+      </a>
+    </p>
+  </div>
+
+  <div class="well span4 back-success">
+    <p>Aqui vai o texto para as coisas desejáveis</p>
+    <p>
+      <a class="btn btn-large btn-success" href="" onClick="community.votes.submit(<%= Priority.wanted %>);">
+        <%= humanize_priority(:wanted) %>
+      </a>
+    </p>
+  </div>
+</div>
+
+
+<div class='row'>
+  <div class="well span4">
+    <p>Aqui vai o texto para as coisas que não devemos fazer</p>
+    <p>
+      <a class="btn btn-large btn-primary" href="" onClick="community.votes.submit(<%= Priority.unwanted %>);">
+        <%= humanize_priority(:unwanted) %>
+      </a>
+    </p>
+  </div>
+
+  <div class="well span4">
+    <p>Não decidi ainda! Não quero votar agora.</p>
+    <p>
+      <button type="button" class="btn btn-large" data-dismiss="modal">
+        <%= t '.cancel'%></button>
+    </p>
+  </div>
+</div>
+
+
+
+<%= simple_form_for @vote, url: build_action_for_vote(@vote) do |f| %>
+  <%= f.input :value, as: :hidden %>
+  <%= f.input :votable_id, as: :hidden %>
+  <%= f.input :votable_type, as: :hidden %>
+<% end %>

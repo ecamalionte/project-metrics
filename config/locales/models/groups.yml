@@ -1,0 +1,11 @@
+#encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      group:
+        one: "Apartamento"
+        other: "Apartamentos"
+    attributes:
+      group:
+        number: "Número"
+        block: "Bloco"
