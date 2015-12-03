@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :redirect_to_dashboard, only: [:new, :create] 
+  skip_before_action :redirect_to_dashboard, only: [:new, :create]
   before_action :set_user, only: :create
   before_action :set_invitation, only: :create
 

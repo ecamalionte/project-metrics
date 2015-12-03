@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
-  before_action :set_problem, only: [:show, :edit, :update, :destroy] 
-  
+  before_action :set_problem, only: [:show, :edit, :update, :destroy]
+
   load_and_authorize_resource
   permit_params :title, :desc
 
@@ -25,7 +25,7 @@ class ProblemsController < ApplicationController
       else
         format.html {
           flash[:error] =  t("messages.error")
-          render 'new' 
+          render 'new'
         }
       end
     end
@@ -38,7 +38,7 @@ class ProblemsController < ApplicationController
       else
         format.html {
           flash[:error] =  t("messages.error")
-          render 'edit' 
+          render 'edit'
         }
       end
     end

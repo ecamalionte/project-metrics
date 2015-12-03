@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  skip_before_action :redirect_to_dashboard, only: [:new, :create] 
-  
+  skip_before_action :redirect_to_dashboard, only: [:new, :create]
+
   def new
   end
 
