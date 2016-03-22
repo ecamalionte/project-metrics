@@ -5,4 +5,5 @@ WORKDIR /project-metrics
 ADD Gemfile /project-metrics/Gemfile
 ADD Gemfile.lock /project-metrics/Gemfile.lock
 RUN bundle install
+ENV RAILS_ENV development
 ADD . /project-metrics
